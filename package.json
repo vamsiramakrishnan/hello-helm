@@ -1,16 +1,16 @@
 {
-  "name": "docker-hello",
-  "private": true,
+  "name": "hello-helm",
   "version": "0.0.1",
-  "description": "CI/CD Wercker + Kubernetes + Docker + OCI + OKE on Node.js",
-  "author": "Vamsi Ramakrishnan <vamsi.ramakrishnan@oracle.com>",
+  "engines": {
+    "node": "0.6.x"
+  },
   "dependencies": {
-    "express": "3.4.8",
-    "mocha": "*",
-    "should": "*",
-    "nconf":  "*",
-    "validator": "*",
-    "jquery":"*",
-    "request-json":"*"
+    "express": "3.x",
+    "nodeunit": "0.7.4",
+    "supertest": "0.4.0",
+    "mocha": "1.6.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "app.js"
   }
-}
