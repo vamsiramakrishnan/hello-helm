@@ -4,6 +4,7 @@
 # Read more about containers on our dev center
 # https://devcenter.wercker.com/overview-and-core-concepts/containers/
 box: node
+  id: node:latest
 # This is the build pipeline. Pipelines are the core of wercker
 # Read more about pipelines on our dev center
 # https://devcenter.wercker.com/development/pipelines/
@@ -16,6 +17,13 @@ box: node
 
     # - mongo
     # https://devcenter.wercker.com/administration/services/examples/mongodb/
+dev:
+  steps:
+    - npm-install
+    - internal/watch:
+        code: node app.js
+        reload: true
+        
 build:
   # The steps that will be executed on build
   # Steps make up the actions in your pipeline
