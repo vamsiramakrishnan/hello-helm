@@ -1,7 +1,8 @@
 var express = require('express');
 var pjson = require('./package.json');
+var version_string =  pjson.version.toString()
 var app = express();
-var toolchain = {toolchain:["Oracle + Wercker","Kubernetes","Docker","Oracle Kubernetes Engine","Oracle Container Registry", pjson.version.toString()]}
+var toolchain = {toolchain:["Oracle + Wercker","Kubernetes","Docker","Oracle Kubernetes Engine","Oracle Container Registry", version_string]}
 
 app.get('/', function(req, res){
     res.writeHead(200, { 'Content-Type': 'application/json' });
