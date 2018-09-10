@@ -2,8 +2,8 @@
   "name": "docker-hello",
   "private": true,
   "version": "0.0.1",
-  "description": "Basic hello world application for Node.js",
-  "author": "Robbie Minshall <rjminsha@us.ibm.com>",
+  "description": "CI/CD Wercker + Kubernetes + Docker + OCI + OKE on Node.js",
+  "author": "Vamsi Ramakrishnan <vamsi.ramakrishnan@oracle.com>",
   "dependencies": {
     "express": "3.4.8",
     "mocha": "*",
