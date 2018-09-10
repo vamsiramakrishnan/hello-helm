@@ -1,26 +1,14 @@
-/**
-* Copyright 2014 IBM
-*
-*   Licensed under the Apache License, Version 2.0 (the "License");
-*   you may not use this file except in compliance with the License.
-*   You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-*   Unless required by applicable law or agreed to in writing, software
-*   distributed under the License is distributed on an "AS IS" BASIS,
-*   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-*   See the License for the specific language governing permissions and
-**/
-
 var express = require('express');
-
-var PORT = 80;
-
 var app = express();
-app.get('/', function (req, res) {
-  res.send('Welcome to Oracle DevOps with Wercker, Docker, Kubernetes and Helm Charts.');
+var toolchain = {cities:["Oracle + Wercker","Kubernetes","Docker","Oracle Kubernetes Engine","Oracle Container Registry"]}
+
+app.get('/', function(req, res){
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.write(JSON.stringify(cities));
+    res.end();
 });
 
-app.listen(PORT)
-console.log(' Application Running on port' + PORT);
+var port = process.env.PORT || 8080;
+app.listen(port);
+
+module.exports = app;
