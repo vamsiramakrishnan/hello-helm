@@ -55,4 +55,4 @@ helm-deploy:
           helm init -c
     - script:
         name: helm upgrade
-        code: helm upgrade --install helm-wercker ./chart-hello
+        code: helm install helm-wercker ./chart-hello
