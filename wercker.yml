@@ -1,22 +1,5 @@
-# This references the default nodejs container from
-# the Docker Hub: https://registry.hub.docker.com/_/node/
-# If you want Nodesource's container you would reference nodesource/node
-# Read more about containers on our dev center
-# https://devcenter.wercker.com/overview-and-core-concepts/containers/
 box: 
   id: node:latest
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# https://devcenter.wercker.com/development/pipelines/
-
-# You can also use services such as databases. Read more on our dev center:
-# https://devcenter.wercker.com/administration/services/
-# services:
-    # - postgres
-    # https://devcenter.wercker.com/administration/services/examples/postgresql/
-
-    # - mongo
-    # https://devcenter.wercker.com/administration/services/examples/mongodb/
 dev:
   steps:
     - npm-install
@@ -42,3 +25,17 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+
+docker-build:
+  - internal/docker-build:
+    dockerfile: Dockerfile
+    image-name: node-app
+    
+  - internal/docker-push: 
+    image-name: node-app
+    username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
+    password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
+    registry: $DOCKER_REPO_ADDRESS
+    repository: $USERNAME/docker-build-golang
+    tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT},latest
+   
