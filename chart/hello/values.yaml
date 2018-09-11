@@ -6,14 +6,14 @@ image:
   repository: webapp
   tag: 1
   pullSecret: regsecret
-  pullPolicy: IfNotPresent
-  # for local development against Minikube registry
+  pullPolicy: Always
   #pullPolicy: Never    
 service:
   name: hello-service
   type: NodePort
   externalPort: 80
   internalPort: 80
+  nodePort: 30500
 ingress:
   enabled: false
   # Used to create an Ingress record.
