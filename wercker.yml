@@ -37,5 +37,5 @@ docker-build:
     password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
     registry: $DOCKER_REPO_ADDRESS
     repository: $USERNAME/docker-build-golang
-    tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT},latest
+    tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT} , latest
    
