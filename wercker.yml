@@ -27,15 +27,16 @@ build:
           echo "npm version $(npm -v) running"
 
 docker-build:
-  - internal/docker-build:
-    dockerfile: Dockerfile
-    image-name: node-app
-    
-  - internal/docker-push: 
-    image-name: node-app
-    username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
-    password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
-    registry: $DOCKER_REPO_ADDRESS
-    repository: $USERNAME/docker-build-golang
-    tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT} , latest
-   
+  steps:
+    - internal/docker-build:
+        dockerfile: Dockerfile
+        image-name: node-app
+
+    - internal/docker-push: 
+        image-name: node-app
+        username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
+        password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
+        registry: $DOCKER_REPO_ADDRESS
+        repository: $USERNAME/docker-build-golang
+        tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT} , latest
+
