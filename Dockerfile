@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:alpine
 MAINTAINER Vamsi Ramakrishnan "vamsi.ramakrishnan@oracle.com"
 
 # Install the application
