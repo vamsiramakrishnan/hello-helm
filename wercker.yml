@@ -45,7 +45,7 @@ helm-deploy:
         server: $KUBE_ENDPOINT
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
-        command: init
+        command: init -c
     - vamsiramakrishnan/helm-kubectl@0.4.0:
         server: $KUBE_ENDPOINT
         token: $KUBE_USER_TOKEN
