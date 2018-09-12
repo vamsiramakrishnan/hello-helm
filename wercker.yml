@@ -41,12 +41,12 @@ docker-build:
 
 helm-deploy:
   steps:
-    - vamsiramakrishnan/helm-kubectl@0.3.0:
+    - vamsiramakrishnan/helm-kubectl@0.3.1:
         server: $KUBE_ENDPOINT
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
         command: init
-    - vamsiramakrishnan/helm-kubectl@0.3.0:
+    - vamsiramakrishnan/helm-kubectl@0.3.1:
         server: $KUBE_ENDPOINT
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
