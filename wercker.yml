@@ -51,9 +51,8 @@ helm-deploy:
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
         command: init
-#     - script:
-#         name: helm upgrade
-#         code: |
-#           kubectl config current-context
-#           helm init
-#           helm install helm-wercker ./chart-hello
+    - vamsiramakrishnan/helm-kubectl@0.2.2:
+        server: $KUBE_ENDPOINT
+        token: $KUBE_USER_TOKEN
+        insecure-skip-tls-verify: true
+        command: install nodejs ./chart/hello
