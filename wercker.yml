@@ -49,11 +49,13 @@ helm-deploy:
     - script:
         name: helm install
         code: |
-          mkdir -p helm
-          curl https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-rc.2-linux-amd64.tar.gz | tar zxv -C helm
-          mv helm/linux-amd64/helm /usr/local/bin/helm
+          curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+          
     - script:
         name: helm upgrade
         code: |
+          kubectl config current-context
           helm init
           helm install helm-wercker ./chart-hello
