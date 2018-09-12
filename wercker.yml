@@ -46,7 +46,7 @@ helm-deploy:
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
         command: cluster-info
-    - vamsiramakrishnan/helm-kubectl@0.2.0:
+    - vamsiramakrishnan/helm-kubectl@0.2.2:
         server: $KUBE_ENDPOINT
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
