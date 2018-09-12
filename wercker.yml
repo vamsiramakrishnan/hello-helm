@@ -46,16 +46,14 @@ helm-deploy:
         token: $KUBE_USER_TOKEN
         insecure-skip-tls-verify: true
         command: cluster-info
-    - script:
-        name: helm install
-        code: |
-          curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-          chmod 700 get_helm.sh
-          ./get_helm.sh
-          
-    - script:
-        name: helm upgrade
-        code: |
-          kubectl config current-context
-          helm init
-          helm install helm-wercker ./chart-hello
+    - vamsiramakrishnan/helm-kubectl@0.1.0:
+        server: $KUBE_ENDPOINT
+        token: $KUBE_USER_TOKEN
+        insecure-skip-tls-verify: true
+        command: init
+#     - script:
+#         name: helm upgrade
+#         code: |
+#           kubectl config current-context
+#           helm init
+#           helm install helm-wercker ./chart-hello
