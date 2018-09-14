@@ -41,7 +41,7 @@ docker-build:
 
 helm-deploy:
   steps:
-    - vamsiramakrishnan/helm 1.0.1:
+    - vamsiramakrishnan/helm@1.0.1:
         token: $KUBE_USER_TOKEN
         username: $KUBE_USERNAME
         server: $KUBE_ENDPOINT
