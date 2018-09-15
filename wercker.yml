@@ -49,11 +49,7 @@ helm-deploy:
         cluster-name: $KUBE_CLUSTER_NAME
         context-name: $KUBE_CONTEXT_NAME
         insecure-skip-tls-verify: true
-<<<<<<< HEAD
         release-name: vamsi-release-test
         release-namespace: helm-wercker-test-namespace
         chart-directory: ./chart/hello-helm
         command: install
-=======
-        command: install ./chart/hello-helm
->>>>>>> c46492b24951c7eb97d44eb46191455af73ad180
