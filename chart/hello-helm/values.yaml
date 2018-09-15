@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 replicaCount: 2
 image:
-  repository: $USERNAME/$REPO_ADDRESS
+  repository: $DOCKER_USERNAME/$REPO_ADDRESS
   tag: latest
   pullPolicy: Always
   #pullPolicy: Never    
