@@ -49,4 +49,4 @@ helm-deploy:
         cluster-name: $KUBE_CLUSTER_NAME
         context-name: $KUBE_CONTEXT_NAME
         insecure-skip-tls-verify: true
-        command: upgrade --install release ./chart/hello-helm
+        command: upgrade --install hello-helm ./chart/hello-helm

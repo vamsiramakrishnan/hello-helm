@@ -5,7 +5,6 @@ replicaCount: 2
 image:
   repository: $USERNAME/$REPO_ADDRESS
   tag: latest
-  pullSecret: regsecret
   pullPolicy: Always
   #pullPolicy: Never    
 service:
