@@ -30,13 +30,13 @@ docker-build:
   steps:
     - internal/docker-build:
         dockerfile: Dockerfile
-        image-name: node-app
+        image-name: hello-helm
 
     - internal/docker-push: 
-        image-name: node-app
-        username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
-        password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
-        repository: $USERNAME/$REPO_ADDRESS
+        image-name: hello-helm
+        username: $DOCKER_USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
+        password: $DOCKER_PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
+        repository: $DOCKER_USERNAME/$REPO_ADDRESS
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT} , latest
 
 helm-deploy:
@@ -49,7 +49,11 @@ helm-deploy:
         cluster-name: $KUBE_CLUSTER_NAME
         context-name: $KUBE_CONTEXT_NAME
         insecure-skip-tls-verify: true
+<<<<<<< HEAD
         release-name: vamsi-release-test
         release-namespace: helm-wercker-test-namespace
         chart-directory: ./chart/hello-helm
         command: install
+=======
+        command: install ./chart/hello-helm
+>>>>>>> c46492b24951c7eb97d44eb46191455af73ad180
