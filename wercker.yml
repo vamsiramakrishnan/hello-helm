@@ -41,7 +41,7 @@ docker-build:
 
 helm-deploy:
   steps:
-    - vamsiramakrishnan/helm@1.0.5:
+    - vamsiramakrishnan/helm@1.0.6:
         token: $KUBE_USER_TOKEN
         username: $KUBE_USERNAME
         server: $KUBE_ENDPOINT
@@ -51,6 +51,5 @@ helm-deploy:
         insecure-skip-tls-verify: true
         release-name: vamsi-test-release
         release-namespace: helm-wercker-test-namespace
-        chart-directory: ./chart/hello-helm
         chart-name: hello-helm
         command: install
