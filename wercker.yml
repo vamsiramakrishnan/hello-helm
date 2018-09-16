@@ -34,8 +34,8 @@ docker-build:
 
     - internal/docker-push: 
         image-name: hello-helm
-        username: $DOCKER_USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="  
-        password: $DOCKER_PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=" 
+        username: $DOCKER_USERNAME  
+        password: $DOCKER_PASSWORD 
         repository: $DOCKER_USERNAME/$REPO_ADDRESS
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT} , latest
 
@@ -49,7 +49,7 @@ helm-deploy:
         cluster-name: $KUBE_CLUSTER_NAME
         context-name: $KUBE_CONTEXT_NAME
         insecure-skip-tls-verify: true
-        release-name: vamsi-test-release
-        release-namespace: helm-wercker-test-namespace
+        release-name: test-release
+        release-namespace: staging
         chart-name: ./chart/hello-helm
         command: install
