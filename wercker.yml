@@ -52,4 +52,4 @@ helm-deploy:
         release-name: cicd-release
         release-namespace: staging
         chart-name: ./chart/hello-helm
-        command: install
+        command: upgrade
