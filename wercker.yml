@@ -41,7 +41,7 @@ docker-build:
 
 helm-deploy:
   steps:
-    - vamsiramakrishnan/helm@1.0.8:
+    - vamsiramakrishnan/helm@1.1.0:
         token: $KUBE_USER_TOKEN
         username: $KUBE_USERNAME
         server: $KUBE_ENDPOINT
@@ -52,4 +52,4 @@ helm-deploy:
         release-name: test-release
         release-namespace: staging
         chart-name: ./chart/hello-helm
-        command: install
+        command: upgrade
