@@ -122,3 +122,8 @@ docker run -p 3000:3000 \
   -e CONTENTFUL_PREVIEW_TOKEN=<PREVIEW_ACCESS_TOKEN> \
   -d the-example-app.nodejs
 ```
+=======
+### Sample node.js hello world application packaged as a container with a Helm Chart
+------
+Use Step Version 1.1.3
+>>>>>>> a3b5440b2563fed6acc697c50d641a79e50fbb21
