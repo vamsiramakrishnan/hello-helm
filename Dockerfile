@@ -1,4 +1,4 @@
-FROM node:9
+FROM node:latest
 MAINTAINER Vamsi Ramakrishnan "vamsi.ramakrishnan@oracle.com"
 
 WORKDIR /app
