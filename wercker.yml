@@ -30,7 +30,11 @@ build:
         name: install-e2e-test
         code: |
           cd ./test/e2e && npm install
-    - npm-test
+    - script: 
+        name: npm-test
+        cwd: $WERCKER_ROOT/test/e2e
+        code: |
+          npm run test
             
 docker-build:
   steps:
