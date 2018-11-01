@@ -1,4 +1,4 @@
 apiVersion: v1
 description: A Helm chart for a NodeJS Application deployed via Wercker and on OCI
 name: hello-helm
-version: 1.0
+version: 1.0.0

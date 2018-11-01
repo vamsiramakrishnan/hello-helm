@@ -25,7 +25,6 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
-
 docker-build:
   steps:
     - internal/docker-build:
@@ -41,7 +40,7 @@ docker-build:
 
 helm-deploy:
   steps:
-    - vamsiramakrishnan/helm@1.0.8:
+    - vamsiramakrishnan/helm@1.1.3:
         token: $KUBE_USER_TOKEN
         username: $KUBE_USERNAME
         server: $KUBE_ENDPOINT
@@ -49,7 +48,7 @@ helm-deploy:
         cluster-name: $KUBE_CLUSTER_NAME
         context-name: $KUBE_CONTEXT_NAME
         insecure-skip-tls-verify: true
-        release-name: test-release
+        release-name: cicd-release
         release-namespace: staging
         chart-name: ./chart/hello-helm
-        command: install
+        command: upgrade
