@@ -15,9 +15,6 @@ build:
   steps:
     # A step that executes `npm install` command
     - npm-install
-    # A step that executes `npm test` command
-    - npm-test
-
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
@@ -25,6 +22,16 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+    - script:
+        name: clone-e2e-test
+        code: |
+          git clone https://github.com/contentful/the-example-app-e2e-tests.git ./test/e2e
+    - script:
+        name: install-e2e-test
+        code: |
+          cd ./test/e2e && npm install
+    - npm-test
+            
 docker-build:
   steps:
     - internal/docker-build:
