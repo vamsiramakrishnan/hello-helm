@@ -10,8 +10,8 @@ image:
 service:
   name: hello-service
   type: NodePort
-  externalPort: 80
-  internalPort: 80
+  externalPort: 3000
+  internalPort: 3000
   nodePort: 30500
 ingress:
   enabled: false
